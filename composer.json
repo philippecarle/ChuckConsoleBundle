@@ -16,5 +16,6 @@
   ],
   "autoload": {
     "psr-4": { "KK\\Labs\\ChuckConsoleBundle\\": "" }
-  }
+  },
+  "target-dir": "KK/Labs/ChuckConsoleBundle",
 }
