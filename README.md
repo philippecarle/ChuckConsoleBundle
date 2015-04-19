@@ -1,4 +1,6 @@
 # ChuckConsoleBundle
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/0f9a6eb3-4979-4768-bf41-3e5389c3a60d/big.png)](https://insight.sensiolabs.com/projects/0f9a6eb3-4979-4768-bf41-3e5389c3a60d)
+
 Simple Symfony2 Bundle displaying a random Chuck Norris fact for every console command.
 
 ##Customization in config.yml file :
