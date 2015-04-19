@@ -1,15 +1,29 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: philippe
+ * Date: 19/04/15
+ * Time: 19:20
+ */
 
-namespace KK\Labs\ChuckConsoleBundle\EventListener;
+namespace KK\Labs\ChuckConsoleBundle\ChuckFactService;
 
 use GuzzleHttp\Client;
-use Symfony\Component\Console\Event\ConsoleTerminateEvent;
 
-class ConsoleTerminateListener
-{
 
-	private $lastName;
+class ChuckAPIService {
+
+	/**
+	 * If user has not its own parameters set, value will be 'Chuck'
+	 * @var string
+	 */
 	private $firstName;
+
+	/**
+	 * If user has not its own parameters set, value will be 'Norris'
+	 * @var string
+	 */
+	private $lastName;
 
 	public function __construct($firstName, $lastName)
 	{
@@ -17,10 +31,8 @@ class ConsoleTerminateListener
 		$this->lastName = $lastName;
 	}
 
-	public function onConsoleTerminate(ConsoleTerminateEvent $event)
+	public function getFact()
 	{
-		$output = $event->getOutput();
-
 		$client = new Client([
 			'base_url' => [
 				'http://api.icndb.com/jokes/random?firstName={firstName}&lastName={lastName}',
@@ -38,8 +50,9 @@ class ConsoleTerminateListener
 
 		if($response->getStatusCode() == 200){
 			$datas = $response->json();
-			$output->writeln(stripslashes($datas['value']['joke']));
+			return stripslashes($datas['value']['joke']);
+		} else {
+			return false;
 		}
-
 	}
 }

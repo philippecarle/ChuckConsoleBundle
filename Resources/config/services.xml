@@ -4,9 +4,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="kk_labs_chuck_console.command_listener" class="KK\Labs\ChuckConsoleBundle\EventListener\ConsoleTerminateListener">
+        <service id="kk_labs_chuck_console.api_query" class="KK\Labs\ChuckConsoleBundle\ChuckFactService\ChuckAPIService">
             <argument>%who.first_name%</argument>
             <argument>%who.last_name%</argument>
+        </service>
+        <service id="kk_labs_chuck_console.command_listener" class="KK\Labs\ChuckConsoleBundle\EventListener\ConsoleTerminateListener">
+            <argument type="service" id="kk_labs_chuck_console.api_query" />
             <tag name="kernel.event_listener" event="console.terminate" method="onConsoleTerminate"/>
         </service>
     </services>
