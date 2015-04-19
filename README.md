@@ -31,6 +31,10 @@ class AppKernel extends Kernel
 }
 ```
 
+##Usage
+As simple as using any app/console command.
+https://pbs.twimg.com/media/CC-t99KWAAEH5Gy.png:large
+![Screenshot of ChuckConsoleBundle](https://pbs.twimg.com/media/CC-t99KWAAEH5Gy.png:large)
 
 ##Customization in config.yml file :
 ```yml
