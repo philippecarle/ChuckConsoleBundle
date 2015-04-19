@@ -1,5 +1,5 @@
 {
-  "name": "kk/chuck-console-bundle",
+  "name": "kk/chuck-command",
   "type": "symfony-bundle",
   "keywords": ["chuck", "norris", "console"],
   "homepage": "http://kodingkittens.com",
