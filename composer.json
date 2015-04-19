@@ -1,5 +1,5 @@
 {
-    "name": "KK/Labs/ChuckConsoleBundle",
+    "name": "kk/chuck-console-bundle",
     "description": "Simple Symfony2 Bundle displaying a random Chuck Norris fact for every console command.",
     "require": {
         "guzzlehttp/guzzle": "~5.2"
