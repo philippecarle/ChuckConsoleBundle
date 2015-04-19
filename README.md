@@ -21,7 +21,7 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             // ...
-            new KK\LabsChuckConsoleBundle\KKLabsChuckConsoleBundle(),
+            new KK\Labs\ChuckConsoleBundle\KKLabsChuckConsoleBundle(),
         );
 
         // ...
