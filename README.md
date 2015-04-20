@@ -3,6 +3,8 @@
 
 [![Latest Stable Version](https://poser.pugx.org/kk/chuck-command/v/stable)](https://packagist.org/packages/kk/chuck-command) [![Total Downloads](https://poser.pugx.org/kk/chuck-command/downloads)](https://packagist.org/packages/kk/chuck-command) [![Latest Unstable Version](https://poser.pugx.org/kk/chuck-command/v/unstable)](https://packagist.org/packages/kk/chuck-command) [![License](https://poser.pugx.org/kk/chuck-command/license)](https://packagist.org/packages/kk/chuck-command)
 
+[![knpbundles.com](http://knpbundles.com/KodingKittens/ChuckConsoleBundle/badge-short)](http://knpbundles.com/KodingKittens/ChuckConsoleBundle)
+
 Simple and stupid Symfony2 Bundle displaying a random Chuck Norris fact after every console command.
 
 ##Installation
