@@ -31,6 +31,10 @@ class ChuckAPIService {
 		$this->lastName = $lastName;
 	}
 
+	/**
+	 * Get fact from Internet Chuck Norris Database
+	 * @return bool|string
+	 */
 	public function getFact()
 	{
 		$client = new Client([
@@ -48,6 +52,7 @@ class ChuckAPIService {
 		]);
 		$response = $client->get();
 
+		//if status is not 200 then return false
 		if($response->getStatusCode() == 200){
 			$datas = $response->json();
 			return stripslashes($datas['value']['joke']);
