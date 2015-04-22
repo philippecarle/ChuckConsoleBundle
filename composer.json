@@ -1,7 +1,7 @@
 {
   "name": "kk/chuck-command",
   "type": "symfony-bundle",
-  "keywords": ["chuck", "norris", "console"],
+  "keywords": ["chuck", "norris", "console", "command"],
   "homepage": "http://kodingkittens.com",
   "description": "Simple Symfony2 Bundle displaying a random Chuck Norris fact for every console command.",
   "require": {
