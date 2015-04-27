@@ -55,7 +55,7 @@ class ChuckAPIService {
 		//if status is not 200 then return false
 		if($response->getStatusCode() == 200){
 			$datas = $response->json();
-			return stripslashes($datas['value']['joke']);
+			return html_entity_decode(stripslashes($datas['value']['joke']));
 		} else {
 			return false;
 		}
