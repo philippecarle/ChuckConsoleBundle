@@ -7,6 +7,8 @@
 
 Simple and stupid Symfony2 Bundle displaying a random Chuck Norris fact after every console command.
 
+<img src="http://4.bp.blogspot.com/-3frZS2Q5h94/VQg-0h2ALBI/AAAAAAAAEfc/i6vyhIUH_mo/s1600/chuck-norris.jpg" alt="Chuck Norris Rules" border="0">
+
 ##Installation
 
 just run :
