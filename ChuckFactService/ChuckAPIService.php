@@ -9,6 +9,7 @@
 namespace KK\Labs\ChuckConsoleBundle\ChuckFactService;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ConnectException;
 
 
 class ChuckAPIService {
@@ -50,7 +51,12 @@ class ChuckAPIService {
 				'allow_redirects' => false,
 			]
 		]);
-		$response = $client->get();
+
+		try{
+			$response = $client->get();
+		} catch(ConnectException $e){
+			return;
+		}
 
 		//if status is not 200 then return false
 		if($response->getStatusCode() == 200){
