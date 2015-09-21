@@ -27,5 +27,6 @@ class KKLabsChuckConsoleExtension extends Extension
 
 	    $container->setParameter('who.first_name', $config['who']['first_name']);
 	    $container->setParameter('who.last_name', $config['who']['last_name']);
+	    $container->setParameter('timeout', $config['timeout']);
     }
 }

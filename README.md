@@ -9,9 +9,17 @@ Simple and stupid Symfony2 Bundle displaying a random Chuck Norris fact after ev
 
 <img src="http://4.bp.blogspot.com/-3frZS2Q5h94/VQg-0h2ALBI/AAAAAAAAEfc/i6vyhIUH_mo/s1600/chuck-norris.jpg" alt="Chuck Norris Rules" border="0">
 
+##NEW
+
+version 0.2 :
+
+* Guzzle 6 implementation
+* chuck:fact console command to get a fact whenever you need one
+
 ##Installation
 
 just run :
+
 ```bash
 composer require kk/chuck-command
 composer update
@@ -39,12 +47,25 @@ class AppKernel extends Kernel
 As simple as using any app/console command.
 ![Screenshot of ChuckConsoleBundle](https://pbs.twimg.com/media/CC-t99KWAAEH5Gy.png:large)
 
+In case of emergency, can also get a fact when you really need one :
+
+```bash
+app/console chuck:fact FirstName LastName
+#output : Fact: Chuck Norris doesn't consider it sex if the woman survives.
+app/console chuck:fact Your boss
+#output : Fact: Your boss doesn't consider it sex if the woman survives.
+```
+
 ##Customization in config.yml file :
 ```yml
 kk_labs_chuck_console:
     who:
+        #your first name or anyone's first name
         first_name: "Your first name"
+        #your last name or anyone's last name
         last_name: "Your last name"
+    #after n seconds, don't wait for response from Chuck API
+    timeout: 5
 ```
 
 ##API Credit

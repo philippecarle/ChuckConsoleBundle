@@ -3,6 +3,7 @@
 namespace KK\Labs\ChuckConsoleBundle\EventListener;
 
 use KK\Labs\ChuckConsoleBundle\ChuckFactService\ChuckAPIService;
+use KK\Labs\ChuckConsoleBundle\Command\ChuckCommand;
 use Symfony\Component\Console\Event\ConsoleTerminateEvent;
 
 class ConsoleTerminateListener
@@ -19,9 +20,8 @@ class ConsoleTerminateListener
 	{
 		$output = $event->getOutput();
 
-		if($fact = $this->chuckApiService->getFact()){
+		if(!$event->getCommand() instanceof ChuckCommand && $fact = $this->chuckApiService->getFact()) {
 			$output->writeln($fact);
 		}
-
 	}
 }

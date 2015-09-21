@@ -7,6 +7,7 @@
         <service id="kk_labs_chuck_console.api_query" class="KK\Labs\ChuckConsoleBundle\ChuckFactService\ChuckAPIService">
             <argument>%who.first_name%</argument>
             <argument>%who.last_name%</argument>
+            <argument>%timeout%</argument>
         </service>
         <service id="kk_labs_chuck_console.command_listener" class="KK\Labs\ChuckConsoleBundle\EventListener\ConsoleTerminateListener">
             <argument type="service" id="kk_labs_chuck_console.api_query" />
