@@ -18,10 +18,8 @@ class ConsoleTerminateListener
 
 	public function onConsoleTerminate(ConsoleTerminateEvent $event)
 	{
-		$output = $event->getOutput();
-
 		if(!$event->getCommand() instanceof ChuckCommand && $fact = $this->chuckApiService->getFact()) {
-			$output->writeln($fact);
+			$event->getOutput()->writeln($fact);
 		}
 	}
 }
