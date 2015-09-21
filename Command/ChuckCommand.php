@@ -14,7 +14,7 @@ class ChuckCommand extends ContainerAwareCommand
 	{
 		$this
 			->setName('chuck:fact')
-			->setDescription("A Norris Fact everyday keeps the doctor away")
+			->setDescription("A Chuck Norris Fact everyday keeps the doctor away")
 			->addArgument('firstname', InputArgument::OPTIONAL, 'Replace Chuck by this string', 'Chuck')
 			->addArgument('lastname', InputArgument::OPTIONAL, 'Replace Norris by this string', 'Norris')
 		;
