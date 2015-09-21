@@ -23,12 +23,13 @@ class Configuration implements ConfigurationInterface
 	    $rootNode
 		    ->children()
 			    ->arrayNode('who')
-		        ->addDefaultsIfNotSet()
-			        ->children()
-					    ->scalarNode('first_name')->defaultValue('Chuck')->end()
-					    ->scalarNode('last_name')->defaultValue('Norris')->end()
-		            ->end()
-		        ->end()//who
+			        ->addDefaultsIfNotSet()
+				        ->children()
+						    ->scalarNode('first_name')->defaultValue('Chuck')->end()
+						    ->scalarNode('last_name')->defaultValue('Norris')->end()
+			            ->end()
+			        ->end()//who
+			    ->scalarNode('timeout')->defaultValue(10)->end()
 		    ->end();
 
         return $treeBuilder;

@@ -23,16 +23,20 @@ class ChuckAPIService {
 	 * After n seconds, cancel
 	 * @var int
 	 */
-	private $timeout = 60;
+	private $timeout;
 
 	/**
 	 * @param string $firstName
 	 * @param string $lastName
+	 * @param int $timeout
 	 */
-	public function __construct($firstName, $lastName)
+	public function __construct($firstName, $lastName, $timeout = 2)
 	{
-		$this->firstName = $firstName;
-		$this->lastName = $lastName;
+		$this
+			->setFirstName($firstName)
+			->setLastName($lastName)
+			->setTimeout($timeout)
+		;
 	}
 
 	/**
@@ -79,8 +83,10 @@ class ChuckAPIService {
 
 		try{
 			$response = $client->get("random", [
-				'firstName' => $this->firstName,
-				'lastName' => $this->lastName,
+				'query' => [
+					'firstName' => $this->firstName,
+					'lastName' => $this->lastName
+				]
 			]);
 		} catch(ConnectException $e){
 			return;
