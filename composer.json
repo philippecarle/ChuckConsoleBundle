@@ -5,7 +5,7 @@
   "homepage": "http://kodingkittens.com",
   "description": "Simple Symfony2 Bundle displaying a random Chuck Norris fact for every console command.",
   "require": {
-    "guzzlehttp/guzzle": "~5.2"
+    "guzzlehttp/guzzle": "6.*"
   },
   "license": "MIT",
   "authors": [

@@ -1,16 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: philippe
- * Date: 19/04/15
- * Time: 19:20
- */
 
 namespace KK\Labs\ChuckConsoleBundle\ChuckFactService;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
-
 
 class ChuckAPIService {
 
@@ -26,11 +19,52 @@ class ChuckAPIService {
 	 */
 	private $lastName;
 
+	/**
+	 * After n seconds, cancel
+	 * @var int
+	 */
+	private $timeout = 60;
+
+	/**
+	 * @param string $firstName
+	 * @param string $lastName
+	 */
 	public function __construct($firstName, $lastName)
 	{
 		$this->firstName = $firstName;
 		$this->lastName = $lastName;
 	}
+
+	/**
+	 * @param string $firstName
+	 * @return $this
+	 */
+	public function setFirstName($firstName)
+	{
+		$this->firstName = $firstName;
+		return $this;
+	}
+
+	/**
+	 * @param string $lastName
+	 * @return $this
+	 */
+	public function setLastName($lastName)
+	{
+		$this->lastName = $lastName;
+		return $this;
+	}
+
+	/**
+	 * @param int $timeout
+	 * @return $this
+	 */
+	public function setTimeout($timeout)
+	{
+		$this->timeout = $timeout;
+		return $this;
+	}
+
 
 	/**
 	 * Get fact from Internet Chuck Norris Database
@@ -39,29 +73,23 @@ class ChuckAPIService {
 	public function getFact()
 	{
 		$client = new Client([
-			'base_url' => [
-				'http://api.icndb.com/jokes/random?firstName={firstName}&lastName={lastName}',
-				[
-					'firstName' => $this->firstName,
-					'lastName' => $this->lastName,
-				]
-			],
-			'defaults' => [
-				'timeout' => 10,
-				'allow_redirects' => false,
-			]
+			'base_uri' => 'http://api.icndb.com/jokes/',
+			'timeout' => $this->timeout
 		]);
 
 		try{
-			$response = $client->get();
+			$response = $client->get("random", [
+				'firstName' => $this->firstName,
+				'lastName' => $this->lastName,
+			]);
 		} catch(ConnectException $e){
 			return;
 		}
 
 		//if status is not 200 then return false
 		if($response->getStatusCode() == 200){
-			$datas = $response->json();
-			return html_entity_decode(stripslashes($datas['value']['joke']));
+			$datas = json_decode($response->getBody());
+			return html_entity_decode(stripslashes($datas->value->joke));
 		} else {
 			return false;
 		}
