@@ -45,6 +45,7 @@ class AppKernel extends Kernel
 
 ##Usage
 As simple as using any app/console command.
+
 ![Screenshot of ChuckConsoleBundle](https://pbs.twimg.com/media/CC-t99KWAAEH5Gy.png:large)
 
 In case of emergency, can also get a fact when you really need one :
