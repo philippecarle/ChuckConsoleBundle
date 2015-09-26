@@ -51,7 +51,7 @@ As simple as using any app/console command.
 In case of emergency, can also get a fact when you really need one :
 
 ```bash
-app/console chuck:fact FirstName LastName
+app/console chuck:fact
 #output : Fact: Chuck Norris doesn't consider it sex if the woman survives.
 app/console chuck:fact Your boss
 #output : Fact: Your boss doesn't consider it sex if the woman survives.
