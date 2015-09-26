@@ -1,9 +1,22 @@
 language: php
 
 php:
-  - "5.6"
-  - "5.5"
-  - "5.4"
-  - "5.3"
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
+  - hhvm
 
-install: composer install
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+branches:
+  only:
+    - master
+
+before_install:
+  - composer self-update
+  - if [ "$SYMFONY_VERSION" != "" ]; then composer require --dev --no-update symfony/symfony=$SYMFONY_VERSION; fi
