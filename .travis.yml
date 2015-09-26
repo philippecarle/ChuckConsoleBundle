@@ -1,22 +1,21 @@
 language: php
 
 php:
+  - 5.3
   - 5.4
   - 5.5
-  - 5.6
-  - 7.0
-  - hhvm
 
-sudo: false
+env:
+  - SYMFONY_VERSION=2.2.*
+  - SYMFONY_VERSION=2.3.*
+  - SYMFONY_VERSION=dev-master
 
-cache:
-  directories:
-    - $HOME/.composer/cache
+before_script:
+  - composer require symfony/symfony:${SYMFONY_VERSION}
+  - vendor/symfony-cmf/testing/bin/travis/phpcr_odm_doctrine_dbal.sh
 
-branches:
-  only:
-    - master
+script: phpunit --coverage-text
 
-before_install:
-  - composer self-update
-  - if [ "$SYMFONY_VERSION" != "" ]; then composer require --dev --no-update symfony/symfony=$SYMFONY_VERSION; fi
+matrix:
+  allow_failures:
+    - env: SYMFONY_VERSION=dev-master
