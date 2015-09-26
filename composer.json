@@ -1,11 +1,17 @@
 {
   "name": "kk/chuck-command",
   "type": "symfony-bundle",
-  "keywords": ["chuck", "norris", "console", "command"],
+  "keywords": [
+    "chuck",
+    "norris",
+    "console",
+    "command"
+  ],
   "homepage": "http://kodingkittens.com",
   "description": "Simple Symfony2 Bundle displaying a random Chuck Norris fact for every console command.",
   "require": {
     "php": ">=5.4.0",
+    "symfony/framework-bundle": "^2.7",
     "guzzlehttp/guzzle": "6.*"
   },
   "license": "MIT",
@@ -16,6 +22,8 @@
     }
   ],
   "autoload": {
-    "psr-4": { "KK\\Labs\\ChuckConsoleBundle\\": "" }
+    "psr-4": {
+      "KK\\Labs\\ChuckConsoleBundle\\": ""
+    }
   }
 }
