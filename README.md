@@ -2,7 +2,10 @@
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/0f9a6eb3-4979-4768-bf41-3e5389c3a60d/big.png)](https://insight.sensiolabs.com/projects/0f9a6eb3-4979-4768-bf41-3e5389c3a60d)
 
 [![Build Status](https://travis-ci.org/KodingKittens/ChuckConsoleBundle.svg)](https://travis-ci.org/KodingKittens/ChuckConsoleBundle)
-[![Latest Stable Version](https://poser.pugx.org/kk/chuck-command/v/stable)](https://packagist.org/packages/kk/chuck-command) [![Total Downloads](https://poser.pugx.org/kk/chuck-command/downloads)](https://packagist.org/packages/kk/chuck-command) [![Latest Unstable Version](https://poser.pugx.org/kk/chuck-command/v/unstable)](https://packagist.org/packages/kk/chuck-command) [![License](https://poser.pugx.org/kk/chuck-command/license)](https://packagist.org/packages/kk/chuck-command)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/KodingKittens/ChuckConsoleBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/KodingKittens/ChuckConsoleBundle/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/kk/chuck-command/v/stable)](https://packagist.org/packages/kk/chuck-command) 
+[![Code Coverage](https://scrutinizer-ci.com/g/KodingKittens/ChuckConsoleBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/KodingKittens/ChuckConsoleBundle/?branch=master)
+[![Total Downloads](https://poser.pugx.org/kk/chuck-command/downloads)](https://packagist.org/packages/kk/chuck-command) 
 
 [![knpbundles.com](http://knpbundles.com/KodingKittens/ChuckConsoleBundle/badge-short)](http://knpbundles.com/KodingKittens/ChuckConsoleBundle)
 
