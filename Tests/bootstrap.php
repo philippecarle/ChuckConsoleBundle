@@ -1,6 +1,21 @@
 <?php
-if (!is_file($autoloadFile = __DIR__.'/../vendor/autoload.php')) {
-	throw new \LogicException('Could not find autoload.php in vendor/. Did you run "composer install --dev"?');
+$vendorDir = __DIR__ . '/../vendor';
+
+if (!@include($vendorDir . '/.composer/autoload.php')) {
+	die("You must set up the project dependencies, run the following commands:
+		wget http://getcomposer.org/composer.phar
+		php composer.phar install
+	");
 }
 
-require $autoloadFile;
+spl_autoload_register(function($class) {
+	if (0 === (strpos($class, 'KK\\Labs\\ChuckConsoleBundle\\'))) {
+		$path = __DIR__.'/../'.implode('/', array_slice(explode('\\', $class), 3)).'.php';
+
+		if (!stream_resolve_include_path($path)) {
+			return false;
+		}
+		require_once $path;
+		return true;
+	}
+});

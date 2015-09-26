@@ -11,11 +11,5 @@ env:
   - SYMFONY_VERSION=dev-master
 
 before_script:
-  - composer require symfony/symfony:${SYMFONY_VERSION}
-  - vendor/symfony-cmf/testing/bin/travis/phpcr_odm_doctrine_dbal.sh
-
-script: phpunit --coverage-text
-
-matrix:
-  allow_failures:
-    - env: SYMFONY_VERSION=dev-master
+  - composer install
+  - phpunit

@@ -11,7 +11,7 @@
   "description": "Simple Symfony2 Bundle displaying a random Chuck Norris fact for every console command.",
   "require": {
     "php": ">=5.4.0",
-    "symfony/framework-bundle": "^2.7",
+    "symfony/symfony": "2.*",
     "guzzlehttp/guzzle": "6.*"
   },
   "license": "MIT",
@@ -25,5 +25,6 @@
     "psr-4": {
       "KK\\Labs\\ChuckConsoleBundle\\": ""
     }
-  }
+  },
+  "target-dir": "KK/Labs/ChuckConsoleBundle"
 }
