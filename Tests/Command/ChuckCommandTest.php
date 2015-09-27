@@ -35,7 +35,7 @@ class ChuckCommandTest extends \PHPUnit_Framework_TestCase
         $mockContainer = $this->getMock('Symfony\Component\DependencyInjection\Container');
 		$mockContainer->expects($this->once())
 			->method('get')
-			->with('kk_labs_chuck_console.api_query')
+			->with('kk_labs_chuck_console.fact_service')
 			->willReturn(new ChuckAPIService());
         return $mockContainer;
     }

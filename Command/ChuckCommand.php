@@ -21,7 +21,7 @@ class ChuckCommand extends ContainerAwareCommand
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$fact = $this->getContainer()->get("kk_labs_chuck_console.api_query")
+		$fact = $this->getContainer()->get("kk_labs_chuck_console.fact_service")
 			->setFirstName($input->getArgument('firstName'))
 			->setLastName($input->getArgument('lastName'))
 			->getFact()

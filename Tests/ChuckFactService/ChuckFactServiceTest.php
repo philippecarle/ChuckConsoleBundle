@@ -26,7 +26,7 @@ class ChuckFactServiceTest extends \PHPUnit_Framework_TestCase
 
 	public function testServiceIsDefinedInContainer()
 	{
-		$service = $this->container->get('kk_labs_chuck_console.api_query');
+		$service = $this->container->get('kk_labs_chuck_console.fact_service');
 
 		$this->assertInstanceOf('KK\Labs\ChuckConsoleBundle\ChuckFactService\ChuckAPIService', $service);
 	}
