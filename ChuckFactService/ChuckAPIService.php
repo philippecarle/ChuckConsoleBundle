@@ -3,7 +3,6 @@
 namespace KK\Labs\ChuckConsoleBundle\ChuckFactService;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ConnectException;
 
 class ChuckAPIService {
 
