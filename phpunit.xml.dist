@@ -4,6 +4,10 @@
         bootstrap="./Tests/bootstrap.php"
         >
 
+    <php>
+        <server name="KERNEL_DIR" value="./Tests/Fixtures/app" />
+    </php>
+
     <testsuites>
         <testsuite name="Chuck Bundle Test Suite">
             <directory>./Tests</directory>
@@ -21,5 +25,9 @@
             </exclude>
         </whitelist>
     </filter>
+
+    <logging>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+    </logging>
 
 </phpunit>

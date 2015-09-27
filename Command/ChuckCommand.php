@@ -14,16 +14,16 @@ class ChuckCommand extends ContainerAwareCommand
 		$this
 			->setName('chuck:fact')
 			->setDescription("A Chuck Norris Fact everyday keeps the doctor away")
-			->addArgument('firstname', InputArgument::OPTIONAL, 'Replace Chuck by this string', 'Chuck')
-			->addArgument('lastname', InputArgument::OPTIONAL, 'Replace Norris by this string', 'Norris')
+			->addArgument('firstName', InputArgument::OPTIONAL, 'Replace Chuck by this string', 'Chuck')
+			->addArgument('lastName', InputArgument::OPTIONAL, 'Replace Norris by this string', 'Norris')
 		;
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		$fact = $this->getContainer()->get("kk_labs_chuck_console.api_query")
-			->setFirstName($input->getArgument('firstname'))
-			->setLastName($input->getArgument('lastname'))
+			->setFirstName($input->getArgument('firstName'))
+			->setLastName($input->getArgument('lastName'))
 			->getFact()
 		;
 

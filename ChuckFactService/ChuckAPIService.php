@@ -30,7 +30,7 @@ class ChuckAPIService {
 	 * @param string $lastName
 	 * @param int $timeout
 	 */
-	public function __construct($firstName, $lastName, $timeout = 2)
+	public function __construct($firstName = 'Chuck', $lastName = 'Norris', $timeout = 2)
 	{
 		$this
 			->setFirstName($firstName)
