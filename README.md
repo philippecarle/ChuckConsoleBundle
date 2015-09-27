@@ -14,10 +14,11 @@ Simple and stupid Symfony2 Bundle displaying a random Chuck Norris fact after ev
 
 ##NEW
 
-version 0.2 :
+version 1.0 :
 
 * Guzzle 6 implementation
 * chuck:fact console command to get a fact whenever you need one
+* timeout configuration parameter
 
 ##Installation
 
