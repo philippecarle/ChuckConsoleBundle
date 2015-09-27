@@ -72,32 +72,44 @@ class ChuckAPIService {
 
 	/**
 	 * Get fact from Internet Chuck Norris Database
-	 * @return bool|string
+	 * @return string
 	 */
 	public function getFact()
 	{
-		$client = new Client([
-			'base_uri' => 'http://api.icndb.com/jokes/',
-			'timeout' => $this->timeout
-		]);
-
-		try{
-			$response = $client->get("random", [
-				'query' => [
-					'firstName' => $this->firstName,
-					'lastName' => $this->lastName
-				]
-			]);
-		} catch(ConnectException $e){
-			return;
-		}
+		$response = $this->getResponse();
 
 		//if status is not 200 then return false
 		if($response->getStatusCode() == 200){
 			$datas = json_decode($response->getBody());
 			return html_entity_decode(stripslashes($datas->value->joke));
-		} else {
-			return false;
 		}
+	}
+
+	/**
+	 * @return \Psr\Http\Message\ResponseInterface
+	 */
+	private function getResponse()
+	{
+		$client = $this->getClient();
+
+		$response = $client->get("random", [
+			'query' => [
+				'firstName' => $this->firstName,
+				'lastName' => $this->lastName
+			]
+		]);
+
+		return $response;
+	}
+
+	/**
+	 * @return Client
+	 */
+	private function getClient()
+	{
+		return new Client([
+			'base_uri' => 'http://api.icndb.com/jokes/',
+			'timeout' => $this->timeout
+		]);
 	}
 }
