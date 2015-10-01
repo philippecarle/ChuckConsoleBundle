@@ -12,7 +12,7 @@
   "require": {
     "php": ">=5.5.0",
     "symfony/symfony": "2.*",
-    "guzzlehttp/guzzle": "6.*"
+    "guzzlehttp/guzzle": ">=6.1"
   },
   "license": "MIT",
   "authors": [
