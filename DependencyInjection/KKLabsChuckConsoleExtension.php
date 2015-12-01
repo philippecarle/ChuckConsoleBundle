@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
 /**
- * This is the class that loads and manages your bundle configuration
+ * This is the class that loads and manages your bundle configuration.
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
@@ -25,8 +25,8 @@ class KKLabsChuckConsoleExtension extends Extension
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
 
-	    $container->setParameter('who.first_name', $config['who']['first_name']);
-	    $container->setParameter('who.last_name', $config['who']['last_name']);
-	    $container->setParameter('timeout', $config['timeout']);
+        $container->setParameter('who.first_name', $config['who']['first_name']);
+        $container->setParameter('who.last_name', $config['who']['last_name']);
+        $container->setParameter('timeout', $config['timeout']);
     }
 }
