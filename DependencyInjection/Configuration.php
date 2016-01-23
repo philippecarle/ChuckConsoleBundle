@@ -29,7 +29,12 @@ class Configuration implements ConfigurationInterface
                             ->scalarNode('last_name')->defaultValue('Norris')->end()
                         ->end()
                     ->end()//who
-                ->scalarNode('timeout')->defaultValue(10)->end()
+                ->scalarNode('timeout')
+                    ->defaultValue(10)
+                ->end()
+                ->arrayNode('environments')
+                    ->prototype('scalar')->end()
+                    ->defaultValue(['dev'])
             ->end();
 
         return $treeBuilder;

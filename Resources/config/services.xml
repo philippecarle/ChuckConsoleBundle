@@ -5,12 +5,14 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <service id="kk_labs_chuck_console.fact_service" class="KK\Labs\ChuckConsoleBundle\ChuckFactService\ChuckAPIService">
-            <argument>%who.first_name%</argument>
-            <argument>%who.last_name%</argument>
-            <argument>%timeout%</argument>
+            <argument>%chuck.who.first_name%</argument>
+            <argument>%chuck.who.last_name%</argument>
+            <argument>%chuck.timeout%</argument>
         </service>
         <service id="kk_labs_chuck_console.command_listener" class="KK\Labs\ChuckConsoleBundle\EventListener\ConsoleTerminateListener">
             <argument type="service" id="kk_labs_chuck_console.fact_service" />
+            <argument>%chuck.enabled_environments%</argument>
+            <argument>%kernel.environment%</argument>
             <tag name="kernel.event_listener" event="console.terminate" method="onConsoleTerminate"/>
         </service>
     </services>

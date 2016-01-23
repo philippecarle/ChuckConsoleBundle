@@ -25,8 +25,9 @@ class KKLabsChuckConsoleExtension extends Extension
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
 
-        $container->setParameter('who.first_name', $config['who']['first_name']);
-        $container->setParameter('who.last_name', $config['who']['last_name']);
-        $container->setParameter('timeout', $config['timeout']);
+        $container->setParameter('chuck.who.first_name', $config['who']['first_name']);
+        $container->setParameter('chuck.who.last_name', $config['who']['last_name']);
+        $container->setParameter('chuck.timeout', $config['timeout']);
+        $container->setParameter('chuck.enabled_environments', $config['environments']);
     }
 }

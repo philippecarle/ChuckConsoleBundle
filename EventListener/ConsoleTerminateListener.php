@@ -2,23 +2,55 @@
 
 namespace KK\Labs\ChuckConsoleBundle\EventListener;
 
+use GuzzleHttp\Exception\ConnectException;
 use KK\Labs\ChuckConsoleBundle\ChuckFactService\ChuckAPIService;
 use KK\Labs\ChuckConsoleBundle\Command\ChuckCommand;
 use Symfony\Component\Console\Event\ConsoleTerminateEvent;
 
+/**
+ * Class ConsoleTerminateListener
+ * @package KK\Labs\ChuckConsoleBundle\EventListener
+ */
 class ConsoleTerminateListener
 {
+    /**
+     * @var ChuckAPIService
+     */
     private $chuckApiService;
 
-    public function __construct(ChuckAPIService $chuckAPIService)
+    /**
+     * @var array
+     */
+    private $enabledEnvironments;
+
+    /**
+     * @var string
+     */
+    private $env;
+
+    /**
+     * ConsoleTerminateListener constructor.
+     * @param ChuckAPIService $chuckAPIService
+     */
+    public function __construct(ChuckAPIService $chuckAPIService, $environments = [], $env)
     {
         $this->chuckApiService = $chuckAPIService;
+        $this->enabledEnvironments = $environments;
+        $this->env = $env;
     }
 
+    /**
+     * @param ConsoleTerminateEvent $event
+     */
     public function onConsoleTerminate(ConsoleTerminateEvent $event)
     {
-        if (!$event->getCommand() instanceof ChuckCommand && $fact = $this->chuckApiService->getFact()) {
-            $event->getOutput()->writeln($fact);
+        if (!$event->getCommand() instanceof ChuckCommand && in_array($this->env, $this->enabledEnvironments)) {
+            try {
+                $fact = $this->chuckApiService->getFact();
+                $event->getOutput()->writeln($fact);
+            } catch (ConnectException $e) {
+                //do nothing;
+            }
         }
     }
 }
