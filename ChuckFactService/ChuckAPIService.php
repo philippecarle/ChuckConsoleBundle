@@ -3,6 +3,7 @@
 namespace KK\Labs\ChuckConsoleBundle\ChuckFactService;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ConnectException;
 
 class ChuckAPIService
 {
@@ -84,7 +85,11 @@ class ChuckAPIService
      */
     public function getFact()
     {
-        $response = $this->getResponse();
+        try {
+            $response = $this->getResponse();
+        } catch (ConnectException $e) {
+            return '';
+        }
 
         //if status is not 200 then return false
         if ($response->getStatusCode() == 200) {
@@ -101,12 +106,14 @@ class ChuckAPIService
     {
         $client = $this->getClient();
 
-        $response = $client->get('random', [
-            'query' => [
-                'firstName' => $this->firstName,
-                'lastName' => $this->lastName,
-            ],
-        ]);
+
+	    $response = $client->get('random', [
+		    'query' => [
+			    'firstName' => $this->firstName,
+			    'lastName' => $this->lastName,
+		    ],
+	    ]);
+
 
         return $response;
     }
