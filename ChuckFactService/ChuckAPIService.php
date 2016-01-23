@@ -85,11 +85,7 @@ class ChuckAPIService
      */
     public function getFact()
     {
-        try {
-            $response = $this->getResponse();
-        } catch (ConnectException $e) {
-            return '';
-        }
+        $response = $this->getResponse();
 
         //if status is not 200 then return false
         if ($response->getStatusCode() == 200) {
@@ -106,14 +102,12 @@ class ChuckAPIService
     {
         $client = $this->getClient();
 
-
 	    $response = $client->get('random', [
 		    'query' => [
 			    'firstName' => $this->firstName,
 			    'lastName' => $this->lastName,
 		    ],
 	    ]);
-
 
         return $response;
     }
