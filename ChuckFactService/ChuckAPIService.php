@@ -81,17 +81,19 @@ class ChuckAPIService
     /**
      * Get fact from Internet Chuck Norris Database.
      *
-     * @return string
+     * @return string|false
      */
     public function getFact()
     {
-        $response = $this->getResponse();
+        try {
+            $response = $this->getResponse();
+            if ($response->getStatusCode() == 200) {
+                $datas = json_decode($response->getBody());
 
-        //if status is not 200 then return false
-        if ($response->getStatusCode() == 200) {
-            $datas = json_decode($response->getBody());
-
-            return html_entity_decode(stripslashes($datas->value->joke));
+                return html_entity_decode(stripslashes($datas->value->joke));
+            }
+        } catch (ConnectException $e) {
+            return false;
         }
     }
 

@@ -44,13 +44,13 @@ class ConsoleTerminateListener
      */
     public function onConsoleTerminate(ConsoleTerminateEvent $event)
     {
-        if (!$event->getCommand() instanceof ChuckCommand && in_array($this->env, $this->enabledEnvironments)) {
-            try {
-                $fact = $this->chuckApiService->getFact();
-                $event->getOutput()->writeln($fact);
-            } catch (ConnectException $e) {
-                //do nothing;
-            }
+        if (
+            !$event->getCommand() instanceof ChuckCommand
+            && in_array($this->env, $this->enabledEnvironments)
+            && $fact = $this->chuckApiService->getFact()
+        ) {
+
+            $event->getOutput()->writeln($fact);
         }
     }
 }
