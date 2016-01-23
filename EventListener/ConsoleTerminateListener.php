@@ -7,8 +7,7 @@ use KK\Labs\ChuckConsoleBundle\Command\ChuckCommand;
 use Symfony\Component\Console\Event\ConsoleTerminateEvent;
 
 /**
- * Class ConsoleTerminateListener
- * @package KK\Labs\ChuckConsoleBundle\EventListener
+ * Class ConsoleTerminateListener.
  */
 class ConsoleTerminateListener
 {
@@ -29,6 +28,7 @@ class ConsoleTerminateListener
 
     /**
      * ConsoleTerminateListener constructor.
+     *
      * @param ChuckAPIService $chuckAPIService
      */
     public function __construct(ChuckAPIService $chuckAPIService, $environments = [], $env)

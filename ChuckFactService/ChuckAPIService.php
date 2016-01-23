@@ -104,12 +104,12 @@ class ChuckAPIService
     {
         $client = $this->getClient();
 
-	    $response = $client->get('random', [
-		    'query' => [
-			    'firstName' => $this->firstName,
-			    'lastName' => $this->lastName,
-		    ],
-	    ]);
+        $response = $client->get('random', [
+            'query' => [
+                'firstName' => $this->firstName,
+                'lastName' => $this->lastName,
+            ],
+        ]);
 
         return $response;
     }
