@@ -14,7 +14,19 @@ Simple and stupid Symfony2 Bundle displaying a random Chuck Norris fact after ev
 
 ##NEW
 
-version 1.0 :
+version 1.3.0:
+
+* new configuration option : environments
+
+version 1.2.0:
+
+* fixed ConnectException issue
+
+version 1.1.0:
+
+* added support for Symfony 3
+
+version 1.0.0:
 
 * Guzzle 6 implementation
 * chuck:fact console command to get a fact whenever you need one
@@ -71,6 +83,8 @@ kk_labs_chuck_console:
         last_name: "Your last name"
     #after n seconds, don't wait for response from Chuck API
     timeout: 5
+    #environments enabled (default : 'dev')
+    environments: ['dev', 'prod', 'custom']
 ```
 
 ##API Credit
