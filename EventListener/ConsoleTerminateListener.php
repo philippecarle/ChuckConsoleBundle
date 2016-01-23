@@ -2,7 +2,6 @@
 
 namespace KK\Labs\ChuckConsoleBundle\EventListener;
 
-use GuzzleHttp\Exception\ConnectException;
 use KK\Labs\ChuckConsoleBundle\ChuckFactService\ChuckAPIService;
 use KK\Labs\ChuckConsoleBundle\Command\ChuckCommand;
 use Symfony\Component\Console\Event\ConsoleTerminateEvent;
@@ -49,7 +48,6 @@ class ConsoleTerminateListener
             && in_array($this->env, $this->enabledEnvironments)
             && $fact = $this->chuckApiService->getFact()
         ) {
-
             $event->getOutput()->writeln($fact);
         }
     }
